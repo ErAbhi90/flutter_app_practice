@@ -1,4 +1,4 @@
-package abhi.mobiledev.in.flutterapppractice
+package `abhi`.`mobiledev`.`in`.`flutterapppractice`
 
 import android.os.Bundle
 
