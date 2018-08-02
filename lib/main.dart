@@ -11,11 +11,17 @@ void main(){
           title: Text('This is an AppBar'),
         ),
 
-// On Pressed method is mandatory in Floating Action button
+
         floatingActionButton: FloatingActionButton(
+
+
+          // For list of ICONS visit https://material.io/tools/icons/?style=baseline
+            child: Icon(Icons.add),
+
+// On Pressed method is mandatory in Floating Action button   
             onPressed: () {
               //Implementation of Button Click Here
-
+              print('Floating Button Clicked');
             }),
 
       )
