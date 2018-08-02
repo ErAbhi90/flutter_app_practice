@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' show get;
 
 class App extends StatefulWidget {
   createState() {
@@ -10,8 +11,20 @@ class AppState extends State<App> {
   // Stateless widget will not contain its own data
   //Stateful is used when we need to maintain some data
 
-//instance variable
+
+  //instance variable
   int counter = 0;
+
+  //To fetch data Async
+
+  void fetchImageData() async {
+    //increment counter as in our Json data starts from 1 but our counter value starts from 0
+    counter++;
+
+    //To fetch data from below url and instead of loading all images at the same time we are passing counter so to fetch data one by one when button clicked
+    var response = await get(
+        'https://jsonplaceholder.typicode.com/photos/$counter');
+  }
 
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -32,10 +45,7 @@ class AppState extends State<App> {
               onPressed: () {
                 //Implementation of Button Click Here
 
-                setState(() {
-                  counter++;
-                  // print('Floating Button Clicked $counter');
-                });
+                fetchImageData;
               }),
 
           //body property to display Widget below AppBar
