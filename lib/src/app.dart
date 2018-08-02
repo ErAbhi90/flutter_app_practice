@@ -10,10 +10,10 @@ class AppState extends State<App> {
   // Stateless widget will not contain its own data
   //Stateful is used when we need to maintain some data
 
-  Widget build(BuildContext context) {
-    //instance variable
-    int counter = 0;
+//instance variable
+  int counter = 0;
 
+  Widget build(BuildContext context) {
     return MaterialApp(
 
 //Scaffold is a class used to implement basic material design features
@@ -33,13 +33,13 @@ class AppState extends State<App> {
                 //Implementation of Button Click Here
 
                 setState(() {
-                  counter += 1;
+                  counter++;
                   // print('Floating Button Clicked $counter');
                 });
               }),
 
           //body property to display Widget below AppBar
-          body: Text('$counter'),
+          body: Text('This is count: $counter'),
 
         )
     );
