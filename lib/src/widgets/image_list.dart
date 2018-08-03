@@ -20,28 +20,30 @@ class ImageList extends StatelessWidget {
 
   displayImage(ImageModel image) {
     //Container is used to add certain type of decorations and can only consist of one child
-    Container(
-        margin: EdgeInsets.all(25.0),
+
+    return Container(
+        margin: EdgeInsets.all(20.0),
         padding: EdgeInsets.all(20.0),
         decoration: BoxDecoration(
             border: Border.all(
                 color: Colors.grey
             )
         ),
-
         // Column is used for arranging multiple child in a linear vertical format if you want horizontal alignment then use Row
         child: Column(
           children: <Widget>[
-            Image.network(image.url),
+            Padding(
+              child: Image.network(image.url),
+              padding: EdgeInsets.only(
+                  bottom: 10.0
+              ),
+            ),
+
             Text(image.title),
           ],
 
         )
-
-
-
-
-
     );
   }
+
 }

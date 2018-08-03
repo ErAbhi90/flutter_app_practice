@@ -21,7 +21,6 @@ class AppState extends State<App> {
   //To fetch data Async
   void fetchImageData() async {
     counter++;
-    print('Working on click  $counter');
     var response =
     await get('https://jsonplaceholder.typicode.com/photos/$counter');
     print(json.decode(response.body));
