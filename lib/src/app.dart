@@ -1,5 +1,9 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' show get;
+
+import 'models/image_model.dart';
 
 class App extends StatefulWidget {
   createState() {
@@ -15,6 +19,9 @@ class AppState extends State<App> {
   //instance variable
   int counter = 0;
 
+  //List Variable
+  List<ImageModel> images = [];
+
   //To fetch data Async
 
   void fetchImageData() async {
@@ -24,6 +31,12 @@ class AppState extends State<App> {
     //To fetch data from below url and instead of loading all images at the same time we are passing counter so to fetch data one by one when button clicked
     var response = await get(
         'https://jsonplaceholder.typicode.com/photos/$counter');
+
+    var imageModel = ImageModel.fromJson(json.decode(response.body));
+
+    setState(() {
+      images.add(imageModel);
+    });
   }
 
   Widget build(BuildContext context) {
